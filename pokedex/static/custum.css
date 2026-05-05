@@ -1,0 +1,12 @@
+.logo{
+    width: 350px;
+    height: auto;
+}
+
+.pokemon-card-img {
+    aspect-ratio: 1 / 1; /* cuadrado perfecto */
+    width: 100%;
+    object-fit: cover;
+}
+
+
