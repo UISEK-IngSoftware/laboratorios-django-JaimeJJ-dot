@@ -1,8 +1,8 @@
-from django.urls import path
+from django.urls import path, re_path
 
 from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("<str:pokemon>/", views.pokemon, name="pokemon"),
-]
+    re_path(r'^/*pokemon/(?P<id>\d+)/$', views.pokemon, name="pokemon"),
+]   
