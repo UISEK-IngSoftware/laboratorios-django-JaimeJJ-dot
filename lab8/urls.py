@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('pokedex.urls'))
+    path('', include(('pokedex.urls', 'pokedex'), namespace='pokedex'))
 ]
 
 if settings.DEBUG:

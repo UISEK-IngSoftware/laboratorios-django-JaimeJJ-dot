@@ -2,6 +2,8 @@
 {% block title %}Página Principal{% endblock %}
 {% block content %}
 <h3 class="mt-4">Pokémons:</h3>
+<a href="{% url 'pokedex:add_pokemon' %}" class="btn btn-success mb-3"><i class="fa-solid fa-plus"></i> Agregar Pokemon</a>
+
 <div class="row">
     {% for pokemon in pokemons %}
     <div class="col-sm-4">
@@ -11,7 +13,9 @@
         <div class="card-body">
     <h5 class="card-title">{{ pokemon | capfirst }}</h5>
     <p class="card-text">Defensa: {{ pokemon.defense }}</p>
-    <a href="{% url 'pokemon' id=pokemon.id %}" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a>
+    <a href="{% url 'pokedex:pokemon' id=pokemon.id %}" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a>
+    <a href="{% url 'pokedex:edit_pokemon' pokemon_id=pokemon.id %}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+    <a href="{% url 'pokedex:delete_pokemon' pokemon_id=pokemon.id %}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
   </div>
 </div>
     </div>
@@ -22,7 +26,7 @@
 <ul class="list-group">
     {% for trainer in trainers %}
     <li class="list-group-item">
-        <a href="{% url 'trainer' id=trainer.id %}">{{ trainer.first_name }} {{ trainer.last_name }}</a>
+        <a href="{% url 'pokedex:trainer' id=trainer.id %}">{{ trainer.first_name }} {{ trainer.last_name }}</a>
     </li>
     {% endfor %}
 </ul>
